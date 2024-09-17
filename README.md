@@ -1,38 +1,21 @@
-# create-svelte
+Project Orwell - I'm very picky about what I want in a writing app. This is my attempt at building that.
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+## Usage
 
-## Creating a project
+1. Install Rust by following its [getting-started guide](https://www.rust-lang.org/learn/get-started).
+   Once this is done, you should have the `rustc` compiler and the `cargo` build system installed in your `PATH`.
+2. Clone or download this repository:
+   ```
+   git clone https://github.com/slint-ui/slint-rust-template my-project
+   cd my-project
+   ```
+3. Build with `cargo`:
+   ```
+   cargo build
+   ```
+4. Run the application binary:
+   ```
+   cargo run
+   ```
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Made using [Slint](https://slint.rs/) for the user interface.

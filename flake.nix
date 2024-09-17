@@ -20,7 +20,7 @@
       });
     in
     {
-      overlays.default = final: prev: rec {
+      overlays.default = final: prev: {
         rustToolchain =
           let
             rust = prev.rust-bin;
@@ -33,8 +33,6 @@
             rust.stable.latest.default.override {
               extensions = [ "rust-src" "rustfmt" ];
             };
-        nodejs = prev.nodejs;
-        yarn = (prev.yarn.override { inherit nodejs; });
       };
 
       devShells = forEachSupportedSystem ({ pkgs }: {
@@ -47,12 +45,17 @@
             cargo-edit
             cargo-watch
             rust-analyzer
-
-            node2nix
-            nodejs
-            nodePackages.pnpm
-            yarn
           ];
+
+          LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${ with pkgs; lib.makeLibraryPath [
+              wayland
+              libxkbcommon
+              fontconfig
+
+              xorg.libxcb
+              xorg.libXfixes
+              libGL
+          ] }";
 
           env = {
             # Required by rust-analyzer
